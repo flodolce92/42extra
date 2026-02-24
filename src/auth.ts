@@ -10,14 +10,16 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, account }) {
-      if (account) {
+    async jwt({ token, account, profile }) {
+      if (account && profile) {
         token.accessToken = account.access_token;
+        token.userId = profile.id;
       }
       return token;
     },
     async session({ session, token }) {
       session.accessToken = token.accessToken;
+      session.user.id = token.userId as string;
       return session;
     },
   },
