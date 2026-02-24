@@ -28,3 +28,14 @@ export interface CursusUser {
     name: string;
   };
 }
+
+export interface FortyTwoEvent {
+	id: number;
+	name: string;
+	description: string;
+	location: string;
+	kind: string;
+	nbr_subscribers: number;
+	begin_at: string;
+	end_at: string;
+}
