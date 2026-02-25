@@ -12,5 +12,9 @@ declare module '@auth/sveltekit' {
 declare module '@auth/core/jwt' {
 	interface JWT {
 		accessToken?: string;
+		expires?: number;
+		refreshToken?: string;
+		userId?: string;
+		username?: string;
 	}
 }
